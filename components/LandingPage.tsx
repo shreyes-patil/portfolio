@@ -30,40 +30,47 @@ import { FileIcon, GitlabIcon, LinkedinIcon } from "lucide-react";
 
 export function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const tiltPhotoRef = useRef<HTMLImageElement>(null); // Explicitly type the ref
-
+  const tiltPhotoRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const handleMouseEnter = () => {
-      gsap.to(tiltPhotoRef.current, {
-        rotationY: 10,
-        rotationX: 10,
-        duration: 0.6,
-        ease: "power2.out",
-        repeat: -1,
-        yoyo: true,
-      });
+    const handleMouseMove = (event: MouseEvent) => {
+      if (tiltPhotoRef.current) {
+        const rect = tiltPhotoRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = event.clientX - centerX;
+        const deltaY = event.clientY - centerY;
+        const rotationX = (deltaY / rect.height) * 20;
+        const rotationY = (deltaX / rect.width) * -20;
+
+        gsap.to(tiltPhotoRef.current, {
+          rotationX,
+          rotationY,
+          duration: 0.8,
+          ease: "power4.out",
+        });
+      }
     };
 
     const handleMouseLeave = () => {
       gsap.to(tiltPhotoRef.current, {
         rotationY: 0,
         rotationX: 0,
-        duration: 0.6,
-        ease: "power2.out",
+        duration: 0.8,
+        ease: "power4.out",
       });
     };
 
     const element = tiltPhotoRef.current;
 
     if (element) {
-      element.addEventListener("mouseenter", handleMouseEnter);
+      element.addEventListener("mousemove", handleMouseMove);
       element.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (element) {
-        element.removeEventListener("mouseenter", handleMouseEnter);
+        element.removeEventListener("mousemove", handleMouseMove);
         element.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
@@ -147,7 +154,7 @@ export function LandingPage() {
                 width={200}
                 height={200}
                 alt="Shreyas Patil"
-                className="rounded-full shadow-lg tilt-photo"
+                className="rounded-full shadow-black tilt-photo"
                 ref={tiltPhotoRef}
               />
             </div>
@@ -268,7 +275,7 @@ export function LandingPage() {
           <h2 className="mb-8 text-3xl font-bold">Projects</h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <Image src="/placeholder.svg" width={600} height={400} alt="Project 1" className="rounded-lg" />
+              <Image src="/chef2go.png" width={600} height={400} alt="Project 1" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">Chef2go</h3>
               <p className="mt-2 text-muted-foreground">
               Engineered an innovative solution enabling international students to cook recipes from their home countries using
@@ -283,7 +290,7 @@ locally available ingredients in the USA, coupled with cost-effective ingredient
                   Live Demo
                 </Link>
                 <Link
-                  href="#"
+                  href="https://github.com/info-6150-fall-2023/final-project-peri-peri"
                   className="inline-flex items-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   prefetch={false}
                 >
@@ -292,7 +299,7 @@ locally available ingredients in the USA, coupled with cost-effective ingredient
               </div>
             </div>
             <div>
-              <Image src="/placeholder.svg" width={600} height={400} alt="Project 2" className="rounded-lg" />
+              <Image src="/melp1.png" width={600} height={400} alt="Project 2" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">Melp</h3>
               <p className="mt-2 text-muted-foreground">
               Orchestrated seamless integration among diverse medical sectors—doctors, patients, medication stores, delivery,
@@ -306,7 +313,7 @@ and labs—for enhanced system cohesion              </p>
                   Live Demo
                 </Link>
                 <Link
-                  href="#"
+                  href="https://github.com/aed5100/final-project-team-sks-1"
                   className="inline-flex items-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   prefetch={false}
                 >
@@ -315,7 +322,7 @@ and labs—for enhanced system cohesion              </p>
               </div>
             </div>
             <div>
-              <Image src="/placeholder.svg" width={600} height={400} alt="Project 3" className="rounded-lg" />
+              <Image src="/ApplyMore.png" width={600} height={400} alt="Project 3" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">ApplyMore</h3>
               <p className="mt-2 text-muted-foreground">
               ApplyMore aims to streamline the job application process, enabling users to manage their applications with ease and efficiency.

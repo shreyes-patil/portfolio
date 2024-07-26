@@ -19,6 +19,7 @@ To read more about using these font, please visit the Next.js documentation:
 **/
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
@@ -136,12 +137,12 @@ export function LandingPage() {
             <div>
               <h1 className="text-4xl font-bold">About Me</h1>
               <p className="mt-4 text-muted-foreground">
-                Hi, I'm Shreyas Patil, a passionate web developer with a strong background in front-end and back-end
+                Hi, I&apos;m Shreyas Patil, a passionate web developer with a strong background in front-end and back-end
                 technologies. I love creating beautiful and functional websites that provide seamless user experiences.
               </p>
             </div>
             <div className="flex justify-center">
-            <img
+            <Image
                 src="/image1.png"
                 width={200}
                 height={200}
@@ -267,7 +268,7 @@ export function LandingPage() {
           <h2 className="mb-8 text-3xl font-bold">Projects</h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <img src="/placeholder.svg" width={600} height={400} alt="Project 1" className="rounded-lg" />
+              <Image src="/placeholder.svg" width={600} height={400} alt="Project 1" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">Chef2go</h3>
               <p className="mt-2 text-muted-foreground">
               Engineered an innovative solution enabling international students to cook recipes from their home countries using
@@ -291,7 +292,7 @@ locally available ingredients in the USA, coupled with cost-effective ingredient
               </div>
             </div>
             <div>
-              <img src="/placeholder.svg" width={600} height={400} alt="Project 2" className="rounded-lg" />
+              <Image src="/placeholder.svg" width={600} height={400} alt="Project 2" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">Melp</h3>
               <p className="mt-2 text-muted-foreground">
               Orchestrated seamless integration among diverse medical sectors—doctors, patients, medication stores, delivery,
@@ -314,7 +315,7 @@ and labs—for enhanced system cohesion              </p>
               </div>
             </div>
             <div>
-              <img src="/placeholder.svg" width={600} height={400} alt="Project 3" className="rounded-lg" />
+              <Image src="/placeholder.svg" width={600} height={400} alt="Project 3" className="rounded-lg" />
               <h3 className="mt-4 text-xl font-bold">ApplyMore</h3>
               <p className="mt-2 text-muted-foreground">
               ApplyMore aims to streamline the job application process, enabling users to manage their applications with ease and efficiency.

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import Image from 'next/image'
 import Link from 'next/link'
 
+
 interface SectionWrapperProps {
   children: React.ReactNode
   id: string
@@ -174,8 +175,8 @@ export default function LandingPage() {
             >
               <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
               <Image
-      src="/image.png"
-      alt="Pratap Puttaswamy"
+      src="/image1.png"
+      alt="Shreyas Hanamantgouda Patil"
       width={200}
       height={200}
       className="rounded-full"
@@ -256,7 +257,7 @@ export default function LandingPage() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div style={{ opacity }} className="absolute bottom-10">
+            <motion.div style={{ opacity }} className="absolute bottom-8">
               <Button
                 variant="ghost"
                 size="icon"
@@ -264,7 +265,7 @@ export default function LandingPage() {
                 onClick={() => scrollToSection('about')}
                 aria-label="Scroll to About section"
               >
-                <ArrowDownCircle size={60} />
+                <ArrowDownCircle size={80} />
               </Button>
             </motion.div>
           </div>

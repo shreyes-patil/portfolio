@@ -185,7 +185,7 @@ export default function LandingPage() {
   
   {/* Floating Particles */}
   <div className="absolute inset-0 w-[250px] h-[250px] -z-10 pointer-events-none flex justify-center items-center">
-    {Array.from({ length: 21 }).map((_, i) => (
+    {Array.from({ length: 22 }).map((_, i) => (
       <div
         key={i}
         className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-float"

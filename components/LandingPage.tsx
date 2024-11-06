@@ -258,17 +258,29 @@ export default function LandingPage() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div style={{ opacity }} className="absolute bottom-8">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="animate-bounce"
-                onClick={() => scrollToSection('about')}
-                aria-label="Scroll to About section"
-              >
-                <ArrowDownCircle size={80} />
-              </Button>
-            </motion.div>
+            <motion.div 
+  style={{ 
+    opacity, 
+    position: 'fixed', 
+    bottom: '5px', // Adjust to move further down
+    left: '50%', 
+    transform: 'translateX(-50%)', 
+  }}
+>
+  <Button
+    variant="ghost"
+    size="icon"
+    className="animate-bounce"
+    onClick={() => scrollToSection('projects')}
+    aria-label="Scroll to Projects section"
+  >
+    <ArrowDownCircle style={{ width: '50px', height: '50px' }}
+    className="stroke-current text-transparent hover:stroke-teal-300 transition-colors duration-200"  /> {/* Direct size control */}
+  </Button>
+</motion.div>
+
+
+
           </div>
         </SectionWrapper>
 

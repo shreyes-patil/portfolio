@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
-import { ArrowDownCircle, Linkedin, Github, Mail, FileText } from 'lucide-react'
+import { ArrowDownCircle, Linkedin, Github, Mail, FileText, Phone, MapPin } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -38,6 +38,7 @@ export default function LandingPage() {
   const [projectFilter, setProjectFilter] = useState<'mobile' | 'web'>('mobile') // State to filter projects
   const [hovered, setHovered] = useState(false)
   const scrollContainerRef = useRef(null)
+  const [layout, setLayout] = useState<'grid' | 'carousel'>('grid')
 
   const { scrollYProgress } = useScroll({
     target: scrollContainerRef,
@@ -55,7 +56,7 @@ export default function LandingPage() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100
-      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'contact']
+      const sections = ['hero', 'about', 'experience', 'skills', 'projects']
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -144,7 +145,7 @@ export default function LandingPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-md">
         <nav className="container mx-auto px-4 py-4">
           <ul className="flex justify-center space-x-4">
-            {['hero', 'about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
+            {['hero', 'about', 'experience', 'skills', 'projects'].map((section) => (
               <li key={section}>
                 <Button
                   variant="ghost"
@@ -234,17 +235,17 @@ export default function LandingPage() {
               <h1 className="text-4xl md:text-6xl font-bold mb-4">Shreyas Patil</h1>
               <h2 className="text-2xl md:text-3xl mb-8">iOS Developer & AI Full-Stack Developer</h2>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="https://www.linkedin.com/in/shreyaspatil" target="_blank" aria-label="LinkedIn Profile">
+                <Link href="https://www.linkedin.com/in/shreyes-patil" target="_blank" aria-label="LinkedIn Profile">
                   <Button variant="outline" size="icon" className="bg-white text-blue-600 hover:text-blue-500 transition-colors duration-200">
                     <Linkedin />
                   </Button>
                 </Link>
-                <Link href="https://github.com/shreyaspatil" target="_blank" aria-label="GitHub Profile">
+                <Link href="https://github.com/shreyes-patil" target="_blank" aria-label="GitHub Profile">
                   <Button variant="outline" size="icon" className="bg-white text-blue-600 hover:text-blue-500 transition-colors duration-200">
                     <Github />
                   </Button>
                 </Link>
-                <Link href="mailto:shreyas.patil@example.com" aria-label="Email">
+                <Link href="mailto:patil.shreyas@northeastern.edu" aria-label="Email">
                   <Button variant="outline" size="icon" className="bg-white text-blue-600 hover:text-blue-500 transition-colors duration-200">
                     <Mail />
                   </Button>
@@ -397,7 +398,24 @@ export default function LandingPage() {
 
       <footer className="bg-white bg-opacity-10 backdrop-blur-md py-8 mt-20">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 Shreyas Patil. All rights reserved.</p>
+          <p>© 2024 Shreyas H Patil. All rights reserved.</p>
+          <div className="flex justify-center space-x-4 mt-4">
+            <Link href="mailto:patil.shreyas@northeastern.edu" aria-label="Email">
+              <Button variant="ghost" size="icon" className="text-white hover:text-teal-200">
+                <Mail />
+              </Button>
+            </Link>
+            <Link href="tel:+18576931155" aria-label="Phone">
+              <Button variant="ghost" size="icon" className="text-white hover:text-teal-200">
+                <Phone />
+              </Button>
+            </Link>
+            <Link href="https://maps.app.goo.gl/EhqAbWxQfnBvxJeR9" target="_blank" aria-label="Location">
+              <Button variant="ghost" size="icon" className="text-white hover:text-teal-200">
+                <MapPin />
+              </Button>
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

@@ -270,12 +270,13 @@ export default function LandingPage() {
   <Button
     variant="ghost"
     size="icon"
-    className="animate-bounce"
+    className="animate-bounce "
     onClick={() => scrollToSection('projects')}
     aria-label="Scroll to Projects section"
   >
-    <ArrowDownCircle style={{ width: '50px', height: '50px' }}
-    className="stroke-current text-transparent hover:stroke-teal-300 transition-colors duration-200"  /> {/* Direct size control */}
+    <ArrowDownCircle style={{ width: '50px', height: '50px', color:'#5eead4' }}
+     
+     /> {/* Direct size control */}
   </Button>
 </motion.div>
 
